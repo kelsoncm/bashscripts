@@ -1,0 +1,7 @@
+#!/bin/bash
+if [ '(no branch)' == "$(git branch | sed -n '/\* /s///p')" ]
+then
+    echo "TAG: $(git name-rev --tags --name-only $(git rev-parse HEAD))"
+else
+    echo "$(git branch | sed -n '/\* /s///p')"
+fi
