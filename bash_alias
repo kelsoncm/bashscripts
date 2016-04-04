@@ -1,8 +1,4 @@
 #!/bin/bash
-alias cdsgc='cd /home/kelson/devel/sgc && workon sgc'
-alias rssgc='cd /home/kelson/devel/sgc && workon sgc && ./manage.py runserver'
-alias spsgc='cd /home/kelson/devel/sgc && workon sgc && ./manage.py shell_plus'
-
 alias cls='clear'
 alias susu='sudo su -'
 alias ls='ls -G -h'
@@ -33,12 +29,12 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias psgrep='ps -aAf | grep '
 
-#alias apt-i='apt-get install'
-#alias apt-u='apt-get update'
-#alias apt-uu='apt-get upgrade'
-#alias apt-s='apt-cache search'
-#alias apt-ss='apt-cache show'
-#alias apt-r='apt-get remove'
-#alias apt-ar='apt-get autoremove'
+alias apt-i='apt-get install'
+alias apt-u='apt-get update'
+alias apt-uu='apt-get upgrade'
+alias apt-s='apt-cache search'
+alias apt-ss='apt-cache show'
+alias apt-r='apt-get remove'
+alias apt-ar='apt-get autoremove'
 
 alias untar='tar -xzvf'
