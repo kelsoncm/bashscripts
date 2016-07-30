@@ -1,7 +1,7 @@
 #!/bin/bash
 alias cls='clear'
 alias susu='sudo su -'
-alias ls='ls -G -h'
+alias ls='ls -h --color=auto'
 alias ll='ls -l'
 alias la='ls -la'
 alias l='ls -a'
@@ -20,7 +20,7 @@ alias cd....='cd ../../..'
 alias cd.....='cd ../../../..'
 alias cd......='cd ../../../../..'
 alias md='mkdir -p'
-alias rm='rm -rf'
+#alias rm='rm -rf'
 alias po=popd
 alias pu=pushd
 
@@ -32,6 +32,7 @@ alias psgrep='ps -aAf | grep '
 alias apt-i='apt-get install'
 alias apt-u='apt-get update'
 alias apt-uu='apt-get upgrade'
+alias apt-uuu='apt-get update && apt-get upgrade'
 alias apt-s='apt-cache search'
 alias apt-ss='apt-cache show'
 alias apt-r='apt-get remove'
