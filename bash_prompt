@@ -78,7 +78,7 @@ function set_git_branch {
   fi
 
   # Set the final branch string.
-  BRANCH=" ${state}[$(./current_branch)]${remote}${COLOR_NONE}"
+  BRANCH=" ${state}[$(current_branch)]${remote}${COLOR_NONE}"
 }
 
 # Return the prompt symbol to use, colorized based on the return value of the
