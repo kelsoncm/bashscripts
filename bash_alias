@@ -39,3 +39,9 @@ alias apt-r='apt-get remove'
 alias apt-ar='apt-get autoremove'
 
 alias untar='tar -xzvf'
+
+alias drs='./manage.py runserver'
+alias dsp='./manage.py shell_plus'
+alias dsu='./manage.py show_urls'
+alias dmm='./manage.py makemigrations'
+alias dmn='./manage.py migrate'
