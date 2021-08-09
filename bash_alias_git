@@ -52,6 +52,8 @@ alias grrm='git remote remove'
 alias grset='git remote set-url'
 alias grup='git remote update'
 
+alias git-authors="git log --all | grep Author > authors.txt && sed  -i -e  's/ <.*>//g' authors.txt && sed -i -e 's/Author: //g' authors.txt && sort -u authors.txt -o authors.txt && code authors.txt"
+
 #alias grba='git rebase --abort'
 #alias grbc='git rebase --continue'
 #alias grbi='git rebase -i'
