@@ -53,3 +53,23 @@ sed -i 's/robbyrussell/agnoster/g' ~/.zshrc
 
 
 source ~/.zshrc
+
+sudo groupadd docker
+sudo usermod -aG docker $USER
+sudo apt remove docker docker-engine docker.io
+sudo apt install -y linux-image-generic linux-image-extra-virtual apt-transport-https ca-certificates curl software-properties-common docker.io
+sudo curl -L https://github.com/docker/compose/releases/download/1.25.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+mkdir -p ~/.docker/cli-plugins/
+curl -SL https://github.com/docker/compose/releases/download/v2.10.1/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
+chmod u+x ~/.docker/cli-plugins/docker-compose
+sudo mkdir -p /root/.docker/cli-plugins/
+sudo cp ~/.docker/cli-plugins/docker-compose /root/.docker/cli-plugins/
+sudo chmod u+x /root/.docker/cli-plugins/docker-compose
+sudo chown -R root: /root/.docker/cli-plugins/docker-compose
+
+docker compose version
+docker-compose --version
+docker run --rm hello-world
+
+
