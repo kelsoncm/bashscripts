@@ -1,0 +1,78 @@
+#!/bin/bash
+function put_line_to_profile {
+    sudo su -c "echo $1 >> /etc/bash.bashrc"
+    sudo su -c "echo $1 >> /etc/zshrc"
+}
+
+
+# Instalação dos pacotes gerais
+sudo su -c "dnf upgrade -y"
+sudo dnf install epel-release -y 
+sudo dnf install sudo neovim unzip zip htop iotop wget lynx curl mlocate openssh-server openssh-clients nano git zsh rsync util-linux-user -y 
+
+
+::# Configurando o neovim
+sudo ln -s /usr/bin/nvim /usr/bin/vim
+sudo su -c "echo '' >> /usr/share/nvim/sysinit.vim"
+sudo su -c "echo 'set mouse=i' >> /usr/share/nvim/sysinit.vim"
+
+# Configuração do BASH
+cd /tmp
+sudo git clone https://bitbucket.org/kelsoncm/bashscripts.git
+sudo mv /tmp/bashscripts/bash* /etc/
+sudo chmod a+x /etc/bash_*
+sudo mv /tmp/bashscripts/current_branch /usr/bin/
+sudo chmod a+x /usr/bin/current_branch
+put_line_to_profile ''
+put_line_to_profile '. /etc/bash_alias'
+put_line_to_profile '. /etc/bash_alias_git'
+#put_line_to_profile '. /etc/bash_prompt'
+sudo su -c "rm -rf /tmp/bashscripts"
+source ~/.bashrc
+
+# Python 3.9
+sudo dnf -y install python3 Tpython3-pip virtualenvwrapper python3-setuptools
+sudo ln -s /usr/bin/python3 /usr/bin/python
+sudo pip install virtualenvwrapper
+# sudo dnf -y install libncurses5-dev libncursesw5-dev libreadline6-dev libdb-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev libxml2-dev libxslt1-dev
+put_line_to_profile ''
+put_line_to_profile 'export WORKON_HOME=~/.virtualenvs'
+put_line_to_profile 'export PROJECT_HOME=~/devel'
+put_line_to_profile 'source /usr/share/virtualenvwrapper/virtualenvwrapper.sh'
+
+
+# Install “Oh My ZSH”
+chsh -s $(which zsh)
+sudo chsh -s $(which zsh)
+zsh
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/popstas/zsh-command-time.git ~/.oh-my-zsh/custom/plugins/command-time
+sed -i 's/plugins=(git)/plugins=(git virtualenvwrapper zsh-syntax-highlighting zsh-autosuggestions command-time)/g' ~/.zshrc
+sed -i 's/robbyrussell/agnoster/g' ~/.zshrc
+source ~/.zshrc
+
+# Install “docker, docker-compose e docker compose plugin”
+sudo groupadd docker
+sudo usermod -aG docker $USER
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+sudo systemctl start docker
+
+#sudo apt remove docker docker-engine docker.io
+#sudo apt install -y linux-image-generic linux-image-extra-virtual apt-transport-https ca-certificates curl software-properties-common docker.io
+#sudo curl -L https://github.com/docker/compose/releases/download/1.25.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+#sudo chmod +x /usr/local/bin/docker-compose
+#mkdir -p ~/.docker/cli-plugins/
+#curl -SL https://github.com/docker/compose/releases/download/v2.10.1/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
+#chmod u+x ~/.docker/cli-plugins/docker-compose
+#sudo mkdir -p /root/.docker/cli-plugins/
+#sudo cp ~/.docker/cli-plugins/docker-compose /root/.docker/cli-plugins/
+#sudo chmod u+x /root/.docker/cli-plugins/docker-compose
+#sudo chown -R root: /root/.docker/cli-plugins/docker-compose
+
+#docker compose version
+#docker-compose --version
+#docker run --rm hello-world
