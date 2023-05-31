@@ -11,6 +11,7 @@ sudo dnf install epel-release -y
 sudo dnf install sudo neovim unzip zip htop iotop wget lynx curl mlocate openssh-server openssh-clients nano git zsh rsync util-linux-user net-tools -y
 
 ::# Configurando o neovim
+sudo unlink /usr/bin/vim
 sudo ln -s /usr/bin/nvim /usr/bin/vim
 sudo su -c "echo '' >> /usr/share/nvim/sysinit.vim"
 sudo su -c "echo 'set mouse=i' >> /usr/share/nvim/sysinit.vim"
