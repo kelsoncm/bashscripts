@@ -43,8 +43,8 @@ put_line_to_profile 'source /usr/local/bin/virtualenvwrapper.sh'
 
 
 # Install “Oh My ZSH”
-chsh -s $(which zsh)
-sudo chsh -s $(which zsh)
+chsh -s /bin/zsh
+sudo chsh -s /bin/zsh
 zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
