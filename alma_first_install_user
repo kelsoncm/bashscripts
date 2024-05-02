@@ -1,5 +1,5 @@
 #!/bin/bash
-
+ 
 # Install “Oh My ZSH”
 chsh -s /bin/zsh
 chsh -s /bin/zsh
