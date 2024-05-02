@@ -1,13 +1,5 @@
 #!/bin/bash
 
-# Python 3.9
-pip install virtualenvwrapper
-put_line_to_profile ''
-put_line_to_profile 'export WORKON_HOME=\$HOME/.virtualenvs'
-put_line_to_profile 'export PROJECT_HOME=\$HOME/devel'
-put_line_to_profile 'source /usr/local/bin/virtualenvwrapper.sh'
-
-
 # Install “Oh My ZSH”
 chsh -s /bin/zsh
 chsh -s /bin/zsh
