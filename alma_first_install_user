@@ -1,14 +1,4 @@
 #!/bin/bash
-function put_line_to_profile {
-    su -c "echo $1 >> /etc/bash.bashrc"
-    su -c "echo $1 >> /etc/zshrc"
-}
-
-# Configuração do BASH
-put_line_to_profile ''
-put_line_to_profile '. /etc/bash_alias'
-put_line_to_profile '. /etc/bash_alias_git'
-source ~/.bashrc
 
 # Python 3.9
 pip install virtualenvwrapper
