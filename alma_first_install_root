@@ -10,7 +10,7 @@ su -c "dnf upgrade -y"
 dnf install epel-release -y 
 dnf install neovim unzip zip htop iotop wget lynx curl mlocate openssh-server openssh-clients nano git zsh rsync util-linux-user net-tools -y
 
-::# Configurando o neovim
+# Configurando o neovim
 unlink /usr/bin/vim
 ln -s /usr/bin/nvim /usr/bin/vim
 su -c "echo '' >> /usr/share/nvim/sysinit.vim"
