@@ -10,11 +10,13 @@ su -c "dnf upgrade -y"
 dnf install epel-release -y 
 dnf install neovim unzip zip htop iotop wget lynx curl mlocate openssh-server openssh-clients nano git zsh rsync util-linux-user net-tools -y
 
+
 # Configurando o neovim
 unlink /usr/bin/vim
 ln -s /usr/bin/nvim /usr/bin/vim
 su -c "echo '' >> /usr/share/nvim/sysinit.vim"
 su -c "echo 'set mouse=i' >> /usr/share/nvim/sysinit.vim"
+
 
 # Configuração do BASH
 cd /tmp
@@ -29,7 +31,8 @@ put_line_to_profile '. /etc/bash_alias_git'
 su -c "rm -rf /tmp/bashscripts"
 source ~/.bashrc
 
-# Python 3.9
+
+# Python 
 dnf -y install python3 python3-pip python3-setuptools
 ln -s /usr/bin/python3 /usr/bin/python
 ln -s /usr/bin/pip3 /usr/bin/pip
@@ -38,6 +41,20 @@ put_line_to_profile ''
 put_line_to_profile 'export WORKON_HOME=\$HOME/.virtualenvs'
 put_line_to_profile 'export PROJECT_HOME=\$HOME/devel'
 put_line_to_profile 'source /usr/local/bin/virtualenvwrapper.sh'
+
+dnf groupinstall -y "Development Tools"
+dnf install -y zlib zlib-devel bzip2-devel openssl-devel sqlite-devel readline-devel python3-tkinter -y
+curl https://pyenv.run | bash
+echo '
+
+# PYENV
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+# PYENV Auto-completions. This should be towards the end of the file.
+eval "$(pyenv init -)"
+' >> ~/.zshrc
+pyenv install 3.12 -f
 
 
 # Install “Oh My ZSH”
@@ -52,6 +69,7 @@ sed -i 's/plugins=(git)/plugins=(git virtualenvwrapper zsh-syntax-highlighting z
 sed -i 's/robbyrussell/agnoster/g' ~/.zshrc
 source ~/.zshrc
 
+
 # Install “docker e docker compose plugin”
 groupadd docker
 usermod -aG docker $USER
@@ -60,8 +78,13 @@ yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce
 yum install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 systemctl start docker
 
+
 # Test “docker e docker compose plugin”
 docker --version
 docker compose version
 docker run --rm hello-world
 echo "Se lembre de adicionar o Alma ao suporte no Docker Desktop"
+
+echo "Para instalar uma nova versão: pyenv install 3.12 -f"
+echo "Para criar um novo venv: pyenv virtualenv 3.12 ava"
+echo "Para ativar a venv: pyenv activate ava"
