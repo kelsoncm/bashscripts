@@ -78,6 +78,8 @@ yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce
 yum install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 systemctl start docker
 
+wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-x86_64
+chmod +x /bin/hadolint
 
 # Test “docker e docker compose plugin”
 docker --version
