@@ -12,7 +12,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/kelsoncm/bashscripts/mas
 
 ### Them as my own user
 ```bash
-bash -c "$(curl -fsSL https://github.com/kelsoncm/bashscripts/blob/master/debian_user_setup)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/kelsoncm/bashscripts/master/debian_user_setup)"
 ```
 
 
