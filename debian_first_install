@@ -44,14 +44,14 @@ put_line_to_profile 'source /usr/share/virtualenvwrapper/virtualenvwrapper.sh'
 # Install “Oh My ZSH”
 chsh -s $(which zsh)
 sudo chsh -s $(which zsh)
-zsh
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+# zsh
+zsh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 git clone https://github.com/popstas/zsh-command-time.git ~/.oh-my-zsh/custom/plugins/command-time
 sed -i 's/plugins=(git)/plugins=(git virtualenvwrapper zsh-syntax-highlighting zsh-autosuggestions command-time)/g' ~/.zshrc
 sed -i 's/robbyrussell/agnoster/g' ~/.zshrc
-source ~/.zshrc
+# source ~/.zshrc
 
 # Install “docker, docker-compose e docker compose plugin”
 sudo groupadd docker
