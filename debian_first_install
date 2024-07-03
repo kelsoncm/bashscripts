@@ -39,7 +39,14 @@ put_line_to_profile ''
 put_line_to_profile 'export WORKON_HOME=~/.virtualenvs'
 put_line_to_profile 'export PROJECT_HOME=~/devel'
 put_line_to_profile 'source /usr/share/virtualenvwrapper/virtualenvwrapper.sh'
+# Install “docker, docker-compose e docker compose plugin”
+sudo apt remove docker docker-engine docker.io
+sudo apt install -y linux-image-generic apt-transport-https ca-certificates software-properties-common docker.io
 
+docker run --rm hello-world
+docker rmi hello-world
+docker --version
+docker compose version
 
 # Install “Oh My ZSH”
 chsh -s $(which zsh)
@@ -50,13 +57,5 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/p
 git clone https://github.com/popstas/zsh-command-time.git ~/.oh-my-zsh/custom/plugins/command-time
 sed -i 's/plugins=(git)/plugins=(git virtualenvwrapper zsh-syntax-highlighting zsh-autosuggestions command-time)/g' ~/.zshrc
 sed -i 's/robbyrussell/agnoster/g' ~/.zshrc
-# zsh
+zsh
 
-# Install “docker, docker-compose e docker compose plugin”
-sudo apt remove docker docker-engine docker.io
-sudo apt install -y linux-image-generic apt-transport-https ca-certificates software-properties-common docker.io
-
-docker run --rm hello-world
-docker rmi hello-world
-docker --version
-docker compose version
