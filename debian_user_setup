@@ -1,0 +1,61 @@
+#!/bin/bash
+function put_line_to_profile {
+    sudo su -c "echo $1 >> /etc/bash.bashrc"
+    sudo su -c "echo $1 >> /etc/zsh/zshrc"
+}
+
+
+# Instalação dos pacotes gerais
+sudo su -c "apt -y update && apt -y upgrade"
+sudo apt-get -y install sudo vim vim-scripts unzip zip p7zip-full htop iotop wget curl lynx locate ssh nano git build-essential zsh rsync
+
+
+# Configurando o vim
+sudo su -c "echo '' >> /etc/vim/vimrc"
+sudo su -c "echo 'syntax on' >> /etc/vim/vimrc"
+sudo su -c "echo 'colorscheme elflord' >> /etc/vim/vimrc"
+# sudo echo "set mouse-=a" >> ~/.vimrc
+
+
+# Configuração do BASH
+cd /tmp
+sudo git clone https://bitbucket.org/kelsoncm/bashscripts.git
+sudo mv /tmp/bashscripts/bash* /etc/
+sudo chmod a+x /etc/bash_*
+sudo mv /tmp/bashscripts/current_branch /usr/bin/
+sudo chmod a+x /usr/bin/current_branch
+put_line_to_profile ''
+put_line_to_profile '. /etc/bash_alias'
+put_line_to_profile '. /etc/bash_alias_git'
+put_line_to_profile '. /etc/bash_prompt'
+sudo su -c "rm -rf /tmp/bashscripts"
+
+
+# Python 3.11
+sudo apt-get -y install python3 python3-dev python3-pip python3-venv virtualenvwrapper python3-setuptools libncurses5-dev libncursesw5-dev libreadline6-dev libdb-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev libxml2-dev libxslt1-dev
+ln -s /usr/bin/python3 /usr/bin/python
+put_line_to_profile ''
+put_line_to_profile 'export WORKON_HOME=~/.virtualenvs'
+put_line_to_profile 'export PROJECT_HOME=~/devel'
+put_line_to_profile 'source /usr/share/virtualenvwrapper/virtualenvwrapper.sh'
+
+
+# Install “docker, docker-compose e docker compose plugin”
+sudo apt remove docker docker-engine docker.io
+sudo apt install -y linux-image-generic apt-transport-https ca-certificates software-properties-common docker.io
+
+docker run --rm hello-world
+docker rmi hello-world
+docker --version
+docker compose version
+
+
+# Install “Oh My ZSH”
+CHSH=no RUNZSH=no zsh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+chsh -s $(which zsh)
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/popstas/zsh-command-time.git ~/.oh-my-zsh/custom/plugins/command-time
+sed -i 's/plugins=(git)/plugins=(git virtualenvwrapper zsh-syntax-highlighting zsh-autosuggestions command-time)/g' ~/.zshrc
+sed -i 's/robbyrussell/agnoster/g' ~/.zshrc
+zsh
