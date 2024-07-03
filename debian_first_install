@@ -53,8 +53,6 @@ sed -i 's/robbyrussell/agnoster/g' ~/.zshrc
 # zsh
 
 # Install “docker, docker-compose e docker compose plugin”
-sudo groupadd docker
-sudo usermod -aG docker $USER
 sudo apt remove docker docker-engine docker.io
 sudo apt install -y linux-image-generic apt-transport-https ca-certificates software-properties-common docker.io
 
