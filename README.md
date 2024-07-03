@@ -14,3 +14,17 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/kelsoncm/bashscripts/mas
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/kelsoncm/bashscripts/master/debian_first_install)"
 ```
+
+
+## AlmaLinux
+
+### First as root
+```bash
+dnf upgrade -y dnf install curl sudo bash -y && reboot
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/kelsoncm/bashscripts/master/alma_first_install_root)"
+```
+
+### Them as my own user
+```bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/kelsoncm/bashscripts/master/alma_first_install_root)"
+```
