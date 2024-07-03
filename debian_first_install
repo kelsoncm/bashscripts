@@ -29,7 +29,6 @@ put_line_to_profile '. /etc/bash_alias'
 put_line_to_profile '. /etc/bash_alias_git'
 put_line_to_profile '. /etc/bash_prompt'
 sudo su -c "rm -rf /tmp/bashscripts"
-source ~/.bashrc
 
 
 # Python 3.11
