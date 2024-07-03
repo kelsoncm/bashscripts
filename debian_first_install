@@ -38,6 +38,7 @@ put_line_to_profile ''
 put_line_to_profile 'export WORKON_HOME=~/.virtualenvs'
 put_line_to_profile 'export PROJECT_HOME=~/devel'
 put_line_to_profile 'source /usr/share/virtualenvwrapper/virtualenvwrapper.sh'
+
 # Install “docker, docker-compose e docker compose plugin”
 sudo apt remove docker docker-engine docker.io
 sudo apt install -y linux-image-generic apt-transport-https ca-certificates software-properties-common docker.io
