@@ -7,7 +7,7 @@ function put_line_to_profile {
 
 # Instalação dos pacotes gerais
 sudo su -c "apt -y update && apt -y upgrade"
-sudo apt-get -y install sudo vim vim-scripts unzip zip p7zip-full htop iotop wget lynx curl locate ssh nano git build-essential zsh rsync
+sudo apt-get -y install sudo vim vim-scripts unzip zip p7zip-full htop iotop wget lynx locate ssh nano git build-essential zsh rsync
 
 
 # Configurando o vim
