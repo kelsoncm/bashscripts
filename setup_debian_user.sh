@@ -1,12 +1,16 @@
 #!/bin/bash
+DC='\033[95m'
+NC='\033[0m'
 
+
+printf "${DC}Check “docker and docker compose plugin”$NC\n"
 docker run --rm hello-world
 docker rmi hello-world
 docker --version
 docker compose version
 
 
-# Install “Oh My ZSH”
+printf "${DC}Install “Oh My ZSH”$NC\n"
 CHSH=no RUNZSH=no zsh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 chsh -s $(which zsh)
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
