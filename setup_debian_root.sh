@@ -74,8 +74,11 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/p
 git clone https://github.com/popstas/zsh-command-time.git ~/.oh-my-zsh/custom/plugins/command-time
 sed -i 's/plugins=(git)/plugins=(git virtualenvwrapper zsh-syntax-highlighting zsh-autosuggestions command-time)/g' ~/.zshrc
 sed -i 's/robbyrussell/agnoster/g' ~/.zshrc
-zsh
 
 
 printf "${DC}Fix “PyEnv” completion for “ZSH” $NC\n"
 rm ~/.pyenv/completions/pyenv.bash
+
+
+printf "${DC}Loading “ZSH” as “root”, remember to type “exit” $NC\n"
+zsh
