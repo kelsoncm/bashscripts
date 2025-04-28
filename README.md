@@ -16,9 +16,9 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/kelsoncm/bashscripts/ref
 
 ## AlmaLinux
 ```bash
-dnf upgrade -y dnf install curl sudo bash -y && reboot
+dnf upgrade -y dnf install curl sudo bash -y
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/kelsoncm/bashscripts/refs/heads/main/setup_alma_root.sh)"
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/kelsoncm/bashscripts/refs/heads/main/setup_alma_root.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/kelsoncm/bashscripts/refs/heads/main/setup_debian_user.sh)"
 ```
 
 To install PHP 8 https://reintech.io/blog/install-php-8-centos-9
@@ -37,7 +37,7 @@ Uninstall using Windows "Add or Remove Programs" and then in `cmd`:
 ```bash
 wsl -l -v
 wsl --unregister Debian
-wsl --unregister AlmaLinux9
+wsl --unregister AlmaLinux-9
 ```
 
 ## To install a pyenv specific venv
