@@ -55,7 +55,10 @@ put_line_to_profile 'export PYENV_ROOT="$HOME/.pyenv"'
 put_line_to_profile '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"'
 put_line_to_profile 'eval "$(pyenv init - bash)"'
 put_line_to_profile 'eval "$(pyenv virtualenv-init -)"'
-
+rm -rf ~/.pyenv/completions/pyenv.bash 
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n eval "$(pyenv init -)"\nfi' >> ~/.zshrc
 
 printf "${DC}Install “docker e docker compose plugin”$NC\n"
 groupadd docker
