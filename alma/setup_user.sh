@@ -19,10 +19,10 @@ dnf groupinstall -y "Development Tools"
 dnf install -y zlib zlib-devel bzip2-devel openssl-devel sqlite-devel readline-devel python3-tkinter -y
 rm -rf ~/.pyenv
 curl https://pyenv.run | bash
-put_line_to_profile 'export PYENV_ROOT="$HOME/.pyenv"'
-put_line_to_profile '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"'
-put_line_to_profile 'eval "$(pyenv init - bash)"'
-put_line_to_profile 'eval "$(pyenv virtualenv-init -)"'
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(pyenv init - bash)"' >> ~/.zshrc
+echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.zshrc
 rm -rf ~/.pyenv/completions/pyenv.bash 
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
 echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
