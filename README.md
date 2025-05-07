@@ -10,15 +10,19 @@ In addition to configures `bash`, `zsh`, `vim`, `virtualenv-wrapper` e `Oh My ZS
 ```bash
 sudo addgroup docker && sudo adduser $USER && sudo adduser $USER docker
 sudo apt update && sudo apt upgrade -y && sudo apt install -y curl sudo bash && cat /etc/os-release && cat /etc/debian_version
-sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/kelsoncm/bashscripts/refs/heads/main/setup_debian_root.sh)"
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/kelsoncm/bashscripts/refs/heads/main/setup_debian_user.sh)"
+sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/kelsoncm/bashscripts/refs/heads/main/debian/setup_root.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/kelsoncm/bashscripts/refs/heads/main/debian/setup_user.sh)"
 ```
 
 ## AlmaLinux
 ```bash
+sudo su -
 dnf upgrade -y dnf install curl sudo bash -y
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/kelsoncm/bashscripts/refs/heads/main/setup_alma_root.sh)"
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/kelsoncm/bashscripts/refs/heads/main/setup_debian_user.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/kelsoncm/bashscripts/refs/heads/main/alma/setup_root.sh)"
+# se for usar k8s, k9s e helm
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/kelsoncm/bashscripts/refs/heads/main/alma/setup_k8s.sh)"
+exit
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/kelsoncm/bashscripts/refs/heads/main/alma/setup_user.sh)"
 ```
 
 To install PHP 8 https://reintech.io/blog/install-php-8-centos-9
