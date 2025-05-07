@@ -13,6 +13,22 @@ sed -i 's/plugins=(git)/plugins=(git virtualenvwrapper zsh-syntax-highlighting z
 sed -i 's/robbyrussell/agnoster/g' ~/.zshrc
 source ~/.zshrc
 
+
+printf "${DC}Install PyEnv$NC\n"
+dnf groupinstall -y "Development Tools"
+dnf install -y zlib zlib-devel bzip2-devel openssl-devel sqlite-devel readline-devel python3-tkinter -y
+rm -rf ~/.pyenv
+curl https://pyenv.run | bash
+put_line_to_profile 'export PYENV_ROOT="$HOME/.pyenv"'
+put_line_to_profile '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"'
+put_line_to_profile 'eval "$(pyenv init - bash)"'
+put_line_to_profile 'eval "$(pyenv virtualenv-init -)"'
+rm -rf ~/.pyenv/completions/pyenv.bash 
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n eval "$(pyenv init -)"\nfi' >> ~/.zshrc
+
+
 # Test “docker e docker compose plugin”
 docker --version
 docker compose version
