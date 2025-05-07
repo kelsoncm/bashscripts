@@ -23,9 +23,9 @@ echo 'set mouse=i' >> /usr/share/nvim/sysinit.vim
 printf "${DC}Configuração do BASH$NC\n"
 cd /tmp
 git clone https://bitbucket.org/kelsoncm/bashscripts.git
-mv /tmp/bashscripts/bash* /etc/
+mv -f /tmp/bashscripts/bash* /etc/
 chmod a+x /etc/bash_*
-mv /tmp/bashscripts/current_branch /usr/bin/
+mv -f /tmp/bashscripts/current_branch /usr/bin/
 chmod a+x /usr/bin/current_branch
 put_line_to_profile ''
 put_line_to_profile '. /etc/bash_alias'
@@ -49,6 +49,7 @@ put_line_to_profile 'source /usr/local/bin/virtualenvwrapper.sh'
 printf "${DC}Install PyEnv$NC\n"
 dnf groupinstall -y "Development Tools"
 dnf install -y zlib zlib-devel bzip2-devel openssl-devel sqlite-devel readline-devel python3-tkinter -y
+rm -rf ~/.pyenv
 curl https://pyenv.run | bash
 put_line_to_profile 'export PYENV_ROOT="$HOME/.pyenv"'
 put_line_to_profile '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"'
