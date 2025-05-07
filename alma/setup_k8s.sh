@@ -13,3 +13,6 @@ brew --help
 
 brew install derailed/k9s/k9s
 k9s --version
+
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3)"
+helm --help
