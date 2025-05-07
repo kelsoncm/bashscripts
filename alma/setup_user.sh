@@ -17,6 +17,10 @@ source ~/.zshrc
 printf "${DC}Install PyEnv$NC\n"
 rm -rf ~/.pyenv
 curl https://pyenv.run | bash
+git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
 echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
 echo 'eval "$(pyenv init - bash)"' >> ~/.zshrc
