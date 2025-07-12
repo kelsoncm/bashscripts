@@ -12,6 +12,7 @@ sudo addgroup docker && sudo adduser $USER && sudo adduser $USER docker
 sudo apt update && sudo apt upgrade -y && sudo apt install -y curl sudo bash && cat /etc/os-release && cat /etc/debian_version
 sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/kelsoncm/bashscripts/refs/heads/main/debian/setup_root.sh)"
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/kelsoncm/bashscripts/refs/heads/main/debian/setup_user.sh)"
+sudo apt-get -qq install docker-ce docker-ce-cli containerd.io docker-compose-plugin docker-ce-rootless-extras docker-buildx-plugin docker-model-plugin docker-buildx-plugin
 ```
 
 ## AlmaLinux
