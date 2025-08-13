@@ -52,10 +52,21 @@ put_line_to_profile 'eval "$(pyenv virtualenv-init -)"'
 pyenv versions
 
 
-printf "${DC}Install “Java, JDK e Maven”$NC\n"
-apt install maven default-jdk
+printf "${DC}Install “Java e JDK”$NC\n"
+apt install default-jdk
 java --version
 javac --version
+
+printf "${DC}Install “Maven”$NC\n"
+wget https://dlcdn.apache.org/maven/maven-3/3.9.11/binaries/apache-maven-3.9.11-bin.tar.gz
+tar -xvzf apache-maven-3.9.11-bin.tar.gz -C /opt/
+ln -s /opt/apache-maven-3.9.11 /opt/maven
+put_line_to_profile 'export M2_HOME=/opt/maven'
+put_line_to_profile 'export MAVEN_HOME=/opt/maven'
+put_line_to_profile 'export PATH=${M2_HOME}/bin:${PATH}'
+export M2_HOME=/opt/maven
+export MAVEN_HOME=/opt/maven
+export PATH=${M2_HOME}/bin:${PATH}
 mvn --version
 
 
