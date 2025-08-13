@@ -52,6 +52,13 @@ put_line_to_profile 'eval "$(pyenv virtualenv-init -)"'
 pyenv versions
 
 
+printf "${DC}Install “Java, JDK e Maven”$NC\n"
+apt install maven default-jdk
+java --version
+javac --version
+mvn --version
+
+
 printf "${DC}Install “docker e docker compose plugin”$NC\n"
 apt remove docker docker-engine docker.io
 apt install -y linux-image-generic apt-transport-https ca-certificates software-properties-common docker.io
