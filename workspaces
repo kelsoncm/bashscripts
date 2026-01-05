@@ -2,18 +2,20 @@
 DC='\033[95m'
 NC='\033[0m'
 
+git config --global user.email "kelsoncm@gmail.com"
+git config --global user.name "Kelson da Costa Medeiros"
 
 printf "${DC}IFRN\n----------------------$NC\n"
 
-printf "${DC}AVA Workspace$NC\n"
+printf "${DC}\n\nAVA Workspace$NC\n\n"
 curl https://raw.githubusercontent.com/cte-zl-ifrn/.github/main/profile/ava-setup-env-dev.sh | $SHELL
 
-printf "${DC}Infra Workspace$NC\n"
+printf "${DC}\n\nInfra Workspace$NC\n\n"
 mkdir -p ~/projetos/IFRN/infra
 cd ~/projetos/IFRN/infra
 git clone git@codelab.ifrn.edu.br:dead-zl/infra/infra_workspace.git
 
-printf "${DC}CMS Workspace$NC\n"
+printf "${DC}\n\nCMS Workspace $NC\n\n"
 curl https://raw.githubusercontent.com/cte-zl-ifrn/.github/main/profile/cms-setup-env-dev.sh | $SHELL
 
-printf "${DC}Não esqueça de executar source\n~./zshrc ”$NC\n"
+printf "${DC}Não esqueça de executar source\n~./zshrc $NC\n"
