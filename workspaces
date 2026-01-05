@@ -1,21 +1,43 @@
 #!/bin/bash
-DC='\033[95m'
-NC='\033[0m'
+DC1="\033[91m\n\n==========\n= "
+DC2="\033[95m\n\n"
+NC="\033[0m"
+LB1="\n====================\n$NC"
+LB2="\n--------------------\n$NC"
 
 git config --global user.email "kelsoncm@gmail.com"
 git config --global user.name "Kelson da Costa Medeiros"
 
-printf "${DC}IFRN\n----------------------$NC\n"
+fetch_and_run() {
+    local group="$1"
+    local workspace="$2"
+    printf "${DC2}WORKSPACE: $group/$workspace$LB2"
+    echo "https://raw.githubusercontent.com/$group/.github/main/workspaces/$workspace.sh"
+    curl -fsSL "https://raw.githubusercontent.com/$group/.github/main/workspaces/$workspace.sh" | $SHELL
+}
 
-printf "${DC}\n\nAVA Workspace$NC\n\n"
-curl https://raw.githubusercontent.com/cte-zl-ifrn/.github/main/profile/ava-setup-env-dev.sh | $SHELL
 
-printf "${DC}\n\nInfra Workspace$NC\n\n"
-mkdir -p ~/projetos/IFRN/infra
-cd ~/projetos/IFRN/infra
-git clone git@codelab.ifrn.edu.br:dead-zl/infra/infra_workspace.git
+printf "${DC1}IFRN$LB1"
+    fetch_and_run "cte-zl-ifrn"   "ava-setup-env-dev"
+    fetch_and_run "cte-zl-ifrn"   "ifrn-infra"
+    fetch_and_run "cte-zl-ifrn"   "cms-setup-env-dev"
 
-printf "${DC}\n\nCMS Workspace $NC\n\n"
-curl https://raw.githubusercontent.com/cte-zl-ifrn/.github/main/profile/cms-setup-env-dev.sh | $SHELL
 
-printf "${DC}Não esqueça de executar source\n~./zshrc $NC\n"
+printf "${DC2}NEES$LB1"
+    fetch_and_run "cte-zl-ifrn"   "tb-back"
+    fetch_and_run "cte-zl-ifrn"   "tb-front"
+
+printf "${DC1}LAIS$LB1"
+    fetch_and_run "lais-huol"     "avasus-2"
+    fetch_and_run "lais-huol"     "avasus-3"
+    fetch_and_run "lais-huol"     "avasus-academico"
+    fetch_and_run "lais-huol"     "avasus-airflow"
+    fetch_and_run "lais-huol"     "avasus-dados"
+    fetch_and_run "lais-huol"     "rds-datasus"
+    fetch_and_run "lais-huol"     "rds-geral"
+    fetch_and_run "lais-huol"     "sabia1"
+    fetch_and_run "lais-huol"     "sabia2"
+    fetch_and_run "lais-huol"     "papermaker-1"
+    fetch_and_run "lais-huol"     "papermaker-2"
+
+printf "\n\n\033[91mNão esqueça de executar source:\033[92m\n~./zshrc $NC\n\n"
