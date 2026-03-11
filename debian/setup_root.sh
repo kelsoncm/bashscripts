@@ -9,8 +9,7 @@ function put_line_to_profile {
 
 printf "${DC}Install common packages$NC\n"
 apt -y update && apt -y upgrade
-apt-get -y install sudo vim vim-scripts unzip zip p7zip-full htop iotop wget curl lynx locate ssh nano git build-essential zsh rsync
-
+apt-get -y install sudo vim vim-scripts unzip zip p7zip-full htop iotop wget curl lynx locate ssh nano git build-essential zsh rsync ripgrep
 
 printf "${DC}Configurando o neovim$NC\n"
 echo '' >> /etc/vim/vimrc
