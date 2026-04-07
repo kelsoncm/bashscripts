@@ -49,6 +49,7 @@ put_line_to_profile '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$P
 put_line_to_profile 'eval "$(pyenv init - bash)"'
 put_line_to_profile 'eval "$(pyenv virtualenv-init -)"'
 pyenv versions
+echo 'export VIRTUAL_ENV_DISABLE_PROMPT=1' >>  ~/.zshrc
 
 
 printf "${DC}Install “Java e JDK”$NC\n"
