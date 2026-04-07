@@ -2,14 +2,12 @@
 DC='\033[95m'
 NC='\033[0m'
 
-echo 'export VIRTUAL_ENV_DISABLE_PROMPT=1' >>  ~/.zshrc
 
 printf "${DC}Check “docker and docker compose plugin”$NC\n"
 docker run --rm hello-world
 docker rmi hello-world
 docker --version
 docker compose version
-
 
 printf "${DC}Install “Oh My ZSH”$NC\n"
 CHSH=no RUNZSH=no zsh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -22,6 +20,7 @@ sed -i 's/robbyrussell/agnoster/g' ~/.zshrc
 
 
 printf "${DC}Install “PyEnv”$NC\n"
+echo 'export VIRTUAL_ENV_DISABLE_PROMPT=1' >>  ~/.zshrc
 curl https://pyenv.run | bash
 rm ~/.pyenv/completions/pyenv.bash
 
