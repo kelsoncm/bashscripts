@@ -2,6 +2,7 @@
 DC='\033[95m'
 NC='\033[0m'
 
+echo 'export VIRTUAL_ENV_DISABLE_PROMPT=1' >>  ~/.zshrc
 
 printf "${DC}Check “docker and docker compose plugin”$NC\n"
 docker run --rm hello-world
