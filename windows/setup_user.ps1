@@ -1,3 +1,16 @@
+## DOS para atualizar o sistema
+# UsoClient StartScan
+# UsoClient StartDownload
+# UsoClient StartInstall
+# UsoClient RestartDevice
+
+## Powershel para atualizar o sistema
+# Install-Module PSWindowsUpdate -Force
+# Get-WindowsUpdate
+# Install-WindowsUpdate -AcceptAll
+
+
+
 # Instalação em massa de apps via winget
 $ErrorActionPreference = "SilentlyContinue"
 
@@ -76,6 +89,15 @@ foreach ($app in $apps) {
 }
 
 oh-my-posh font install Meslo
+$themeDir = "$env:LOCALAPPDATA\Programs\oh-my-posh\themes"
+
+# Cria o diretório se não existir
+if (!(Test-Path $themeDir)) { New-Item -Path $themeDir -ItemType Directory }
+
+# Baixa o tema agnoster diretamente do repo oficial
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/agnoster.omp.json" `
+                  -OutFile "$themeDir\agnoster.omp.json"
+
 
 Write-Host "Instalação concluída." -ForegroundColor Cyan
 
