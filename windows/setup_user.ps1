@@ -75,4 +75,7 @@ foreach ($app in $apps) {
     }
 }
 
+oh-my-posh font install Meslo
+
 Write-Host "Instalação concluída." -ForegroundColor Cyan
+
