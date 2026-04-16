@@ -1,0 +1,81 @@
+{
+	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
+	"CreationDate" : "2026-04-16T19:13:06.619-00:00",
+	"WinGetVersion" : "1.28.220",
+	"Sources" : 
+	[
+		{
+			"SourceDetails" : 
+			{
+				"Argument" : "https://cdn.winget.microsoft.com/cache",
+				"Identifier" : "Microsoft.Winget.Source_8wekyb3d8bbwe",
+				"Name" : "winget",
+				"Type" : "Microsoft.PreIndexed.Package"
+			},
+			"Packages" : 
+			[
+				{"PackageIdentifier" : "JetBrains.DataGrip"},
+				{"PackageIdentifier" : "JetBrains.DataSpell"},
+				{"PackageIdentifier" : "Docker.DockerDesktop"},
+				{"PackageIdentifier" : "JetBrains.IntelliJIDEA"},
+				{"PackageIdentifier" : "Notepad++.Notepad++"},
+				{"PackageIdentifier" : "Microsoft.OneDrive"},
+				{"PackageIdentifier" : "JetBrains.PhpStorm"},
+				{"PackageIdentifier" : "JetBrains.PyCharm"},
+				{"PackageIdentifier" : "JetBrains.WebStorm"},
+				{"PackageIdentifier" : "7zip.7zip"},
+				{"PackageIdentifier" : "OpenVPNTechnologies.OpenVPNConnect"},
+				{"PackageIdentifier" : "Google.GoogleDrive"},
+				{"PackageIdentifier" : "Logitech.OptionsPlus"},
+				{"PackageIdentifier" : "Symless.Synergy"},
+				{"PackageIdentifier" : "WinDirStat.WinDirStat"},
+				{"PackageIdentifier" : "Google.Chrome.EXE"},
+				{"PackageIdentifier" : "Microsoft.Edge"},
+				{"PackageIdentifier" : "Microsoft.VCRedist.2015+.x86"},
+				{"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.8"},
+				{"PackageIdentifier" : "Microsoft.VCRedist.2015+.x64"},
+				{"PackageIdentifier" : "Python.Launcher"},
+				{"PackageIdentifier" : "Bitwarden.Bitwarden"},
+				{"PackageIdentifier" : "DBeaver.DBeaver.Enterprise"},
+				{"PackageIdentifier" : "Perplexity.Comet"},
+				{"PackageIdentifier" : "Mirantis.Lens"},
+				{"PackageIdentifier" : "astral-sh.uv"},
+				{"PackageIdentifier" : "Python.Python.3.14"},
+				{"PackageIdentifier" : "15722UsefulApp.WorkspaceLauncherForVSCode"},
+				{"PackageIdentifier" : "Canonical.Ubuntu.2404"},
+				{"PackageIdentifier" : "Microsoft.Teams"},
+				{"PackageIdentifier" : "Microsoft.AppInstaller"},
+				{"PackageIdentifier" : "Microsoft.PowerShell"},
+				{"PackageIdentifier" : "Microsoft.UI.Xaml.2.7"},
+				{"PackageIdentifier" : "Microsoft.UI.Xaml.2.8"},
+				{"PackageIdentifier" : "Microsoft.VCLibs.Desktop.14"},
+				{"PackageIdentifier" : "Microsoft.VCLibs.14"},
+				{"PackageIdentifier" : "Microsoft.WindowsAppRuntime.1.8"},
+				{"PackageIdentifier" : "Microsoft.WindowsTerminal"},
+				{"PackageIdentifier" : "Microsoft.WSL"},
+				{"PackageIdentifier" : "Debian.Debian"},
+				{"PackageIdentifier" : "JanDeDobbeleer.OhMyPosh"}
+			]
+		},
+		{
+			"SourceDetails" : 
+			{
+				"Argument" : "https://storeedgefd.dsx.mp.microsoft.com/v9.0",
+				"Identifier" : "StoreEdgeFD",
+				"Name" : "msstore",
+				"Type" : "Microsoft.Rest"
+			},
+			"Packages" : 
+			[
+				{"PackageIdentifier" : "XPDM17HK323C4X"},
+				{"PackageIdentifier" : "XPDM1ZW6815MQM"},
+				{"PackageIdentifier" : "XPFCG5NRKXQPKT"},
+				{"PackageIdentifier" : "XPFCS9QJBKTHVZ"},
+				{"PackageIdentifier" : "XP9KHM4BK9FZ7Q"},
+				{"PackageIdentifier" : "XP89DCGQ3K6VLD"},
+				{"PackageIdentifier" : "9WZDNCRFHWXL"},
+				{"PackageIdentifier" : "9NZVDKPMR9RD"}
+			]
+		}
+	]
+}
