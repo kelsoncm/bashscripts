@@ -8,6 +8,7 @@
 # Install-Module PSWindowsUpdate -Force
 # Get-WindowsUpdate
 # Install-WindowsUpdate -AcceptAll
+# Restart-Computer -Force
 
 
 
