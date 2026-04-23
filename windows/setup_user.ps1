@@ -1,17 +1,3 @@
-## DOS para atualizar o sistema
-# UsoClient StartScan
-# UsoClient StartDownload
-# UsoClient StartInstall
-# UsoClient RestartDevice
-
-## Powershel para atualizar o sistema
-# Install-Module PSWindowsUpdate -Force
-# Get-WindowsUpdate
-# Install-WindowsUpdate -AcceptAll
-# Restart-Computer -Force
-
-
-
 # Instalação em massa de apps via winget
 $ErrorActionPreference = "SilentlyContinue"
 
